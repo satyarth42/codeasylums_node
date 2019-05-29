@@ -1,8 +1,19 @@
 const express = require('express');
 const morgan = require('morgan');
 const parser = require('body-parser');
+const mongoose = require('mongoose');
+
 const app = express();
 const port = 3001;
+
+mongoose.connect("mongodb+srv://dbuser:qwerty123@cluster0-gdx0h.mongodb.net/test?retryWrites=true",function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log("Atlas connected");
+    }
+});
 
 // let count = 0;
 const users = require('./routes/users');
