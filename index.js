@@ -2,8 +2,12 @@ const express = require('express');
 const morgan = require('morgan');
 const parser = require('body-parser');
 const mongoose = require('mongoose');
-
+const ejs = require('ejs');
 const app = express();
+
+app.set('view engine','ejs');
+app.set('views','./views');
+
 const port = 3001;
 
 mongoose.connect("mongodb+srv://dbuser:qwerty123@cluster0-gdx0h.mongodb.net/test?retryWrites=true",function(err){
